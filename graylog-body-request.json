@@ -1,0 +1,42 @@
+{
+  "queries": [
+    {
+      "id": "qid",
+      "timerange": {
+          "type": "absolute",
+          "from": "2021-02-01T07:00:00.000Z",
+          "to": "2021-03-03T09:15:00.000Z"
+       },
+      "query": {
+        "type": "elasticsearch",
+        "query_string": "EventID:4624 AND _exists_:IpAddress AND NOT (IpAddress:127.* OR IpAddress:192.168.* OR IpAddress:10.* OR IpAddress:\"::1\" OR IpAddress:fe80* OR IpAddress:fc* IpAddress:fd* OR IpAddress:\"-\")"
+      },
+      "search_types": [{
+            "id": "stid",
+            "column_groups": [],
+            "filter": null,
+            "name": null,
+            "query": null,
+            "rollup": true,
+            "row_groups": [
+              {
+                "field": "IpAddress",
+                "limit": 100,
+                "type": "values"
+              }
+            ],
+            "series": [
+              {
+                "field": null,
+                "id": "count()",
+                "type": "count"
+              }
+            ],
+            "sort": [],
+            "streams": [],
+            "timerange": null,
+            "type": "pivot"
+          }]
+    }
+  ]
+}
