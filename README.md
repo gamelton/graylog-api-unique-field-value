@@ -5,6 +5,7 @@ For more advaced search let's store query body in a file. And run Powershell com
 Notes to body file    
 - `query_string` - this is query you normailly put in Search box in web dashboard. It needs backslash for escape double quotes. We filter internal IPs because we are not interested in them  
 - `row_groups` - provides field name we group on. And how many results returned (100)  
+
 Notes to command  
 - Basic authentication sends credentials in cleartext  
 - Replace `user` and `password` with your Graylog user  
